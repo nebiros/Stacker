@@ -10,6 +10,7 @@
 #import "LMStackerCustomAction.h"
 #import <UIDevice-Hardware/UIDevice-Hardware.h>
 #import <HexColors/HexColor.h>
+#import <RequestUtils/RequestUtils.h>
 
 @interface LMStackerWebViewController ()
 @property WebViewJavascriptBridge* bridge;
@@ -234,7 +235,8 @@ andRootPageTabImageName:(NSString *)pageTabName
     if([self stringIsNilOrEmpty:newPageTitle]) {
         self.title = @" ";
     } else {
-        newPageTitle = [newPageTitle stringByReplacingOccurrencesOfString:@"+" withString:@" "];
+//        newPageTitle = [newPageTitle stringByReplacingOccurrencesOfString:@"+" withString:@" "];
+        newPageTitle = [newPageTitle URLDecodedString:YES];
         self.title = newPageTitle;
     }
 
