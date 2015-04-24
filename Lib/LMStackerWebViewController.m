@@ -244,6 +244,8 @@ andRootPageTabImageName:(NSString *)pageTabName
     if (self.rootPage) {
         if ([self.delegate rootPageTitleImage] != nil){
             self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[self.delegate rootPageTitleImage]];
+        } else {
+            self.navigationItem.titleView = nil;
         }
     }
 
@@ -264,6 +266,8 @@ andRootPageTabImageName:(NSString *)pageTabName
     UIBarButtonItem *ourButton = self.buttonHandlers[rightButtonHandler];
     if(ourButton != NULL){
         self.navigationItem.rightBarButtonItems = @[ourButton];
+    } else {
+        self.navigationItem.rightBarButtonItems = nil;
     }
 
 }
